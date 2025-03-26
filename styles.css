@@ -92,3 +92,19 @@ footer {
     width: 100%;
     border-top: 5px solid var(--gold-color);
 }
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: var(--gold-color);
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--text-color);
+}
