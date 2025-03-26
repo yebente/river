@@ -16,45 +16,53 @@ body {
 }
 
 header {
-    position: fixed; /* Keeps the header at the top */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 15px 20px;
+    background-color: transparent;
+    transition: all 0.4s ease-in-out;
+    padding: 20px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000; /* Ensures it's always on top */
+    z-index: 1000;
 }
 
+header.scrolled {
+    background-color: var(--primary-color); /* Change background on scroll */
+    padding: 10px 30px; /* Shrinks the header */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a stylish shadow */
+}
 
 header img {
-    height: 55px; /* Keeps the logo consistent */
-    margin-right: 20px;
+    height: 60px;
+    transition: height 0.4s ease-in-out;
+}
+
+header.scrolled img {
+    height: 40px; /* Shrinks the logo slightly */
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    gap: 12px; /* Keeps spacing balanced */
+    list-style: none;
+    gap: 20px;
 }
 
 nav ul li a {
     color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px;
-    padding: 6px 10px;
-    transition: color 0.3s ease;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
     color: var(--gold-color);
+    transform: scale(1.1); /* Makes it pop slightly on hover */
 }
+
 
 .button {
     background-color: var(--accent-color);
