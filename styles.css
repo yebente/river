@@ -21,15 +21,6 @@ body {
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-
-/* Wrapper to Contain All Content */
-.wrapper {
-    width: 100%;
-    max-width: 1440px; /* Prevents content from exceeding large screens */
-    margin: 0 auto; /* Centers the content */
-    overflow: hidden; /* Ensures nothing overflows */
-}
-
 /* Header */
 header {
     position: fixed;
@@ -188,8 +179,10 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensures the video fills the hero section */
+    z-index: -1; /* Keeps it behind the content */
 }
+
 
 /* Dark Overlay for Readability */
 .hero-overlay {
@@ -730,4 +723,115 @@ header.scrolled + .hero {
     .contact-card {
         max-width: 90%;
     }
+}
+
+
+/* Contacts */
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+/* Hero Section */
+.contact-hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background: url('images/contact-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+/* Contact Form */
+.contact-form {
+    flex: 1;
+    max-width: 500px;
+}
+
+.contact-form h2 {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.submit-btn {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Google Map */
+.map-container {
+    flex: 1;
+    min-width: 500px;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
 }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Riversprings Properties</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" defer></script>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- Contact Header -->
+        <header>
+            <img src="images/logo.jpg" alt="Riversprings Properties Logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero contact-hero">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Contact Us</h1>
+                    <p>Book a site visit or reach out for more details.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-form">
+                <h2>Book a Site Visit</h2>
+                <p>Fill out the form below, and our agent will contact you.</p>
+                
+                <form action="submit_form.php" method="post">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Visit Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Preferred Visit Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Any special requests?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+
+            <!-- Google Maps Integration -->
+            <div class="map-container">
+                <h2>Property Location</h2>
+                <div id="map"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function initMap() {
+            const propertyLocation = { lat: -1.286389, lng: 36.817223 }; // Replace with actual property coordinates
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 16,
+                center: propertyLocation,
+                mapTypeId: "satellite"
+            });
+
+            const plots = [
+                { lat: -1.2861, lng: 36.8171, size: "500 sqm", price: "$20,000", status: "Available" },
+                { lat: -1.2865, lng: 36.8175, size: "700 sqm", price: "$30,000", status: "Sold" }
+            ];
+
+            plots.forEach(plot => {
+                const marker = new google.maps.Marker({
+                    position: { lat: plot.lat, lng: plot.lng },
+                    map: map
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<strong>Size:</strong> ${plot.size}<br>
+                              <strong>Price:</strong> ${plot.price}<br>
+                              <strong>Status:</strong> ${plot.status}`
+                });
+
+                marker.addListener("click", () => {
+                    infoWindow.open(map, marker);
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>
