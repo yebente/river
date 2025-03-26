@@ -15,77 +15,63 @@ body {
     padding: 0;
 }
 
-/* Header Styling */
+/* Header */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.1); /* Transparent with a glassmorphism effect */
-    backdrop-filter: blur(10px); /* Smooth blur effect */
-    transition: all 0.4s ease-in-out;
-    padding: 18px 30px;
+    background: transparent; /* Initially transparent */
+    transition: background 0.4s ease-in-out, padding 0.4s ease-in-out;
+    padding: 20px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Shrinking effect when scrolling */
+/* Header style on scroll */
 header.scrolled {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 12px 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background: var(--primary-color); /* Change to solid color */
+    padding: 10px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo Adjustments */
+/* Logo Resizing on Scroll */
 header img {
     height: 60px;
-    transition: height 0.4s ease-in-out, transform 0.3s ease-in-out;
+    transition: height 0.4s ease-in-out;
 }
 
 header.scrolled img {
-    height: 45px; /* Shrinks smoothly */
-    transform: scale(0.95);
+    height: 40px; /* Shrinks logo slightly */
 }
 
-/* Navigation Menu */
+/* Navigation Links */
 nav ul {
     display: flex;
     list-style: none;
-    gap: 25px;
+    gap: 20px;
 }
 
 nav ul li a {
-    color: var(--text-color);
+    color: white; /* Default color for visibility */
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
+    font-weight: bold;
     padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Elegant Hover Effect */
-nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background-color: var(--gold-color);
-    transition: all 0.3s ease-in-out;
-    transform: translateX(-50%);
+/* Change link color on scroll */
+header.scrolled nav ul li a {
+    color: var(--text-color); /* Ensure readability */
 }
 
 nav ul li a:hover {
     color: var(--gold-color);
-    transform: scale(1.08);
+    transform: scale(1.1);
 }
+
 
 nav ul li a:hover::after {
     width: 100%;

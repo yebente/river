@@ -64,3 +64,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+
+/* JavaScript for Scroll Effect */
+window.addEventListener("scroll", function () {
+    let header = document.querySelector("header");
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled"); // Add background on scroll
+    } else {
+        header.classList.remove("scrolled"); // Remove when back at top
+    }
+});
