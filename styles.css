@@ -34,3 +34,13 @@ nav a {
     margin: 0 15px;
     font-weight: bold;
 }
+
+.button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
