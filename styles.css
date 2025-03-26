@@ -18,10 +18,7 @@ body {
 header {
     background-color: var(--primary-color);
     color: var(--text-color);
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    border-bottom: 5px solid var(--gold-color);
+    padding: 10px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -29,17 +26,13 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
+    height: 70px; /* Reduced height */
+    border-bottom: 3px solid var(--gold-color);
 }
 
 header img {
-    height: 50px;
-    margin-left: 20px;
-}
-
-nav {
-    background-color: var(--secondary-color);
-    padding: 10px;
-    border-bottom: 3px solid var(--gold-color);
+    height: 45px; /* Adjusted logo size */
+    margin-right: 15px;
 }
 
 nav ul {
@@ -47,20 +40,15 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline;
+    gap: 15px; /* Reduced gap between menu items */
 }
 
 nav ul li a {
     color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 15px;
-    display: inline-block;
+    font-size: 16px; /* Adjusted font size for better balance */
+    padding: 8px 12px;
     transition: color 0.3s;
 }
 
