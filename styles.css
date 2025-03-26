@@ -15,53 +15,119 @@ body {
     padding: 0;
 }
 
+/* Header Styling */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: transparent;
+    background: rgba(255, 255, 255, 0.1); /* Transparent with a glassmorphism effect */
+    backdrop-filter: blur(10px); /* Smooth blur effect */
     transition: all 0.4s ease-in-out;
-    padding: 20px 30px;
+    padding: 18px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Shrinking effect when scrolling */
 header.scrolled {
-    background-color: var(--primary-color); /* Change background on scroll */
-    padding: 10px 30px; /* Shrinks the header */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a stylish shadow */
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Logo Adjustments */
 header img {
     height: 60px;
-    transition: height 0.4s ease-in-out;
+    transition: height 0.4s ease-in-out, transform 0.3s ease-in-out;
 }
 
 header.scrolled img {
-    height: 40px; /* Shrinks the logo slightly */
+    height: 45px; /* Shrinks smoothly */
+    transform: scale(0.95);
 }
 
+/* Navigation Menu */
 nav ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 25px;
 }
 
 nav ul li a {
     color: var(--text-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
     padding: 10px 15px;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Elegant Hover Effect */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--gold-color);
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
 }
 
 nav ul li a:hover {
     color: var(--gold-color);
-    transform: scale(1.1); /* Makes it pop slightly on hover */
+    transform: scale(1.08);
 }
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+}
+
 
 
 .button {
@@ -203,6 +269,67 @@ footer {
     .cta-button {
         font-size: 1rem;
         padding: 10px 20px;
+    }
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--gold-color);
+    color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+    transform: scale(0);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Mobile Menu Styles */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+}
+
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--primary-color);
+        width: 200px;
+        text-align: right;
+        padding: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 }
 
