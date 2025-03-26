@@ -22,12 +22,23 @@ header {
     text-align: center;
     font-size: 24px;
     border-bottom: 5px solid var(--gold-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header img {
+    height: 50px;
+    margin-left: 20px;
 }
 
 nav {
     background-color: var(--secondary-color);
     padding: 10px;
-    text-align: center;
     border-bottom: 3px solid var(--gold-color);
 }
 
@@ -36,7 +47,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 20px;
 }
 
@@ -50,6 +61,11 @@ nav ul li a {
     font-weight: bold;
     padding: 10px 15px;
     display: inline-block;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--gold-color);
 }
 
 .button {
@@ -73,8 +89,6 @@ footer {
     color: var(--text-color);
     text-align: center;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     border-top: 5px solid var(--gold-color);
 }
