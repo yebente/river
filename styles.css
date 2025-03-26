@@ -48,3 +48,13 @@ nav a {
 .button:hover {
     background-color: var(--secondary-color);
 }
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
