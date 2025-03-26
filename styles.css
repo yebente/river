@@ -44,3 +44,7 @@ nav a {
     cursor: pointer;
     transition: 0.3s;
 }
+
+.button:hover {
+    background-color: var(--secondary-color);
+}
