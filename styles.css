@@ -22,17 +22,17 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
-    height: 70px; /* Reduced height */
+    height: 80px; /* Fixed height */
     border-bottom: 3px solid var(--gold-color);
+    z-index: 1000;
 }
 
 header img {
-    height: 45px; /* Adjusted logo size */
-    margin-right: 15px;
+    height: 55px; /* Keeps the logo consistent */
+    margin-right: 20px;
 }
 
 nav ul {
@@ -40,16 +40,16 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 15px; /* Reduced gap between menu items */
+    gap: 12px; /* Keeps spacing balanced */
 }
 
 nav ul li a {
     color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px; /* Adjusted font size for better balance */
-    padding: 8px 12px;
-    transition: color 0.3s;
+    font-size: 15px;
+    padding: 6px 10px;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
